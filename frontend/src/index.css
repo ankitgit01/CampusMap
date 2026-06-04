@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.campus-marker {
+  width: 22px;
+  height: 22px;
+  background: var(--marker-fill, #2563eb);
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 4px var(--marker-ring, #bfdbfe),
+    0 4px 12px rgb(15 23 42 / 30%);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.campus-marker:hover {
+  transform: scale(1.15);
+  box-shadow:
+    0 0 0 5px var(--marker-ring, #bfdbfe),
+    0 8px 18px rgb(15 23 42 / 34%);
+}
+
+.campus-route-segment {
+  stroke-dasharray: 14 12;
+  animation: route-flow 850ms linear infinite;
+  filter: drop-shadow(0 2px 4px rgb(15 23 42 / 28%));
+}
+
+.leaflet-tooltip {
+  border: 1px solid rgb(226 232 240);
+  border-radius: 8px;
+  box-shadow: 0 10px 22px rgb(15 23 42 / 16%);
+}
+
+@keyframes route-flow {
+  from {
+    stroke-dashoffset: 26;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
